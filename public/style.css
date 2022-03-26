@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+	all: unset;
+	display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/*
+  Remove list styles (bullets/numbers)
+  in case you use it with normalize.css
+*/
+ol,
+ul {
+	list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+	max-width: 100%;
+}
+
+/* Removes spacing between cells in tables */
+table {
+	border-collapse: collapse;
+}
+
+/* Revert the 'white-space' property for textarea elements on Safari */
+textarea {
+	white-space: revert;
+}
+/* End of CSS reset */
+
+
+body {
+	font-family: 'Work Sans', sans-serif;
+	scroll-behavior: smooth;
+}
+
+#dark {
+	--bg: #0f0e17;
+	--headline: #fffffe;
+	--paragraph: #a7a9be;
+	--btn_bg: #ff8906;
+	--btn_txt: #fffffe;
+	--shadow: 0 0px 6px 6px #00000033;
+	background: var(--bg);
+	color: var(--paragraph);
+}
+
+#light {
+	--bg: #fef6e4;
+	--headline: #001858;
+	--paragraph: #172c66;
+	--btn_bg: #f582ae;
+	--btn_txt: #001858;
+	--shadow: 0 0px 6px 6px #bbbbbb33;
+	background: var(--bg);
+	color: var(--paragraph);
+}
+
+::-webkit-scrollbar {
+	opacity: 0;
+	width: 0.3em;
+	height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 100vw;
+	background-color: var(--paragraph);
+}
+
+header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 1.5rem;
+	color: var(--headline);
+}
+
+.logo {
+	width: 3rem;
+}
+
+.logo > svg {
+	fill: var(--paragraph);
+}
+
+.links {
+	flex: auto;
+	align-self: center;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 1rem;
+	padding-right: 1rem;
+}
+
+header .links a {
+	color: var(--btn_txt);
+	cursor: pointer;
+}
+
+header .links a:hover {
+	color: var(--btn_bg);
+}
+
+.menu {
+	display: none;
+	height: 2.3rem;
+}
+
+ion-icon {
+	fill: var(--paragraph);
+}
+
+.close {
+	display: none;
+}
+
+.darker,
+.lighter {
+	cursor: pointer;
+	width: 1.2rem;
+}
+
+article {
+	padding: 1rem 9.5rem;
+}
+
+.photo {
+	height: 10rem;
+	width: 10rem;
+	border-radius: 50%;
+	position: relative;
+}
+
+.photo img {
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+}
+
+.photo::after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	background: var(--bg);
+	border-radius: 50%;
+	top: -0.25rem;
+	left: -0.25rem;
+	height: 10.5rem;
+	width: 10.5rem;
+}
+
+.intro {
+	display: flex;
+	align-items: flex-end;
+	padding-left: 3rem;
+	gap: 2rem;
+	margin-bottom: 3rem;
+	position: relative;
+	height: 32rem;
+}
+
+.intro .bg {
+	border-radius: 0.4rem;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: -1;
+	height: 25rem;
+	width: 100%;
+	background: url(./assets/images/bg1.jpg) no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.intro h1 {
+	font-size: 2em;
+	font-weight: 700;
+	color: var(--headline);
+	line-height: 2.5em;
+}
+
+.info {
+	text-align: center;
+}
+
+.brief {
+	height: 1em;
+	width: 1em;
+}
+
+.info h4 {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+h2 {
+	text-transform: capitalize;
+	font-size: 1.3em;
+	font-weight: 600;
+	color: var(--headline);
+}
+
+.section {
+	padding: 1.5rem 2rem;
+	box-shadow: var(--shadow);
+	border-radius: 0.2rem;
+	margin: 1rem 0;
+	margin-bottom: 3rem;
+	line-height: 2;
+}
+
+.tools,
+.tech,
+.learning {
+	display: flex;
+	gap: 2rem;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.section > span {
+	height: 4rem;
+	width: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.section span > img {
+	max-height: 100%;
+}
+
+#dark .section span > img {
+	filter: grayscale(100%);
+}
+
+#dark .section .invert > img {
+	filter: grayscale(100%);
+	filter: invert(50%);
+}
+
+.more {
+	display: none;
+	text-decoration: underline;
+    cursor: pointer;
+}
+
+.less {
+	text-decoration: underline;
+    cursor: pointer;
+}
+
+.entry {
+	border-left: 2px solid var(--paragraph);
+	margin: 1rem;
+	padding: 1rem;
+	position: relative;
+}
+
+.entry::after {
+	content: "";
+	position: absolute;
+	height: 1rem;
+	width: 1rem;
+	background: currentColor;
+	top: 0;
+	left: 0;
+	border-bottom-right-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+}
+
+.time {
+	opacity: 0.7;
+	font-weight: 500;
+	font-size: 0.9em;
+}
+
+h3 {
+	font-weight: 700;
+	font-size: 1.2em;
+}
+
+h5 {
+	font-weight: 600;
+	opacity: 0.9;
+	font-size: 1.1em;
+}
+
+footer {
+	padding: 0.5rem;
+	text-align: center;
+}
+
+.socials {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5rem;
+	padding-bottom: 1.5rem;
+}
+
+
+#dark .socials span > img {
+	filter: grayscale(100%);
+}
+
+#dark .socials .invert > img {
+	filter: grayscale(100%);
+	filter: invert(50%);
+}
+
+.socials > span {
+	width: 2rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 680px) {
+	.logo {
+		width: 2em;
+	}
+
+	.menu {
+		flex: auto;
+		display: flex;
+		justify-content: flex-end;
+		align-self: center;
+		cursor: pointer;
+		padding-right: 1rem;
+	}
+
+	.links {
+		position: fixed;
+		inset: 0;
+		display: grid;
+		place-content: center;
+		text-align: center;
+		gap: 2rem;
+		background: var(--bg);
+		z-index: 10;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.close {
+		display: block;
+		cursor: pointer;
+		position: fixed;
+		top: 1rem;
+		left: 0;
+		right: 0;
+		height: 3rem;
+	}
+
+	article {
+		padding: 1rem 1.5rem;
+	}
+
+	.intro {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		gap: 1rem;
+		padding-left: 1.5rem;
+		height: 19rem;
+	}
+
+	.intro h1 {
+		font-size: 1.8em;
+		line-height: 1.3em;
+	}
+
+	.mode {
+		bottom: 5rem;
+	}
+
+	.intro .bg {
+		height: 10rem;
+	}
+
+	.photo {
+		height: 7rem;
+		width: 7rem;
+		border-radius: 50%;
+		position: relative;
+	}
+
+	.photo img {
+		width: 7rem;
+		height: 7rem;
+		border-radius: 50%;
+	}
+
+	.photo::after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		background: var(--bg);
+		border-radius: 50%;
+		top: -0.25rem;
+		left: -0.25rem;
+		height: 7.5rem;
+		width: 7.5rem;
+	}
+
+	.entry > p {
+		display: none;
+	}
+
+	.more {
+		display: block;
+	}
+	.less {
+		display: none;
+	}
+}
+
+#hidden {
+	display: none;
+}
